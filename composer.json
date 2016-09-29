@@ -1,0 +1,13 @@
+{
+    "name": "kakaha/news",
+    "authors": [
+        {
+            "name": "kakaha",
+            "email": "romanchuk.eva@gmail.com"
+        }
+    ],
+    "require": {
+        "slim/slim": "^3.0",
+        "slim/twig-view": "^2.1"
+    }
+}
