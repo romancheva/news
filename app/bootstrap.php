@@ -1,7 +1,12 @@
 <?php
+use Slim\App;
+
+ini_set('display_errors', 'On');
+
 require INC_ROOT.'/vendor/autoload.php';
 
-$app = new \Slim\App;
+$config = require INC_ROOT . '/app/config/development.php';
+$app = new App($config);
 
 $container = $app->getContainer();
 
@@ -18,6 +23,13 @@ $container['view'] = function ($container) {
 
     return $view;
 };
+
+$capsule = new \Illuminate\Database\Capsule\Manager;
+$capsule->addConnection($container['settings']['db']);
+$capsule->setAsGlobal();
+$capsule->bootEloquent();
+
+$container['db'] = $capsule;
 
 require INC_ROOT."/app/routes/first.php";
 

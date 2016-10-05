@@ -6,8 +6,14 @@
             "email": "romanchuk.eva@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "": "src"
+        }
+    },
     "require": {
         "slim/slim": "^3.0",
-        "slim/twig-view": "^2.1"
+        "slim/twig-view": "^2.1",
+        "illuminate/database": "~5.1"
     }
 }
